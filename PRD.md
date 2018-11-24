@@ -24,7 +24,7 @@ Why are you doing this? How does this relate to your overall product strategy?
 
 # Requirements
 
-# | Title | User story | Importance| Notes
+#| Title | User story | Importance| Notes
 ---|---|---|---|---
  1 | Short identifier |Describe user and what they are trying to achieve | Must Have | Additional considerations |
  2 |        |           |                |            |
