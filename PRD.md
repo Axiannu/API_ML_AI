@@ -32,7 +32,8 @@ number | Title | User story | Importance| Notes
 2 |文本识别 |B用户正在浏览广告文案进行文案写作学习，发现配图下有着一句话，虽然单词简单，但是句子在该文案中有着画龙点睛的效果，于是下拉通知栏，点击驻留在通知栏的软件快速查询按钮中的文字识别，划出适应大小的识别框，若是没有选择到，则移动识别框或拉大缩小识别框至合适的位置。识别后以弹出通知的形式告知识别结果。           |  一般  |   后台常驻是否能得到用户的许可，是否需要添加收藏以便用户日后查看         
 
 # User interaction and design
-用户使用流程，
+用户使用流程
+ ![操作界面](https://s1.ax1x.com/2018/11/25/FkxJN4.png)
 
 # Questions
 Below is a list of questions to be addressed as a result of this requirements document:
