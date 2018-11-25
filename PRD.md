@@ -1,45 +1,46 @@
 
 
 ### 表格
-Target release 1 | Add date
+属性 | 内容
 ---|---
-Target release  | Add date
-Epic            | Add epic name
-Document status | Not started/In progress/Done
-Document owner  | Name owner
-Designer        | Name lead designer
-Developer       | Name lead developer
-QA              | Name lead tester
+Target release  | 2018/11/25
+Epic            | 辅助用户对文本更加系统的学习
+Document status | 文本结构分析
+Document owner  | 陈荣城
+Designer        | 陈荣城
+Developer       | 陈荣城
+QA              | 陈荣城
 
 
 # Goals
-- E.g. Simplify the user experience, reduce friction etc...
+- 任务目标为方便用户进行英语学习，使用户更加系统的学习英语，理解句子结构。明白其主谓宾。
 
 # Background and strategic fit
-Why are you doing this? How does this relate to your overall product strategy?
+市面上使用最多的英语辅助工具多为英语翻译，大多数学习者都是直接单个单词翻译或者整句翻译，只了解句子表面的中文意思，可是却无法写出相同句式的句子来，这样的学习效率并不能达到最大化。
 
 # Assumptions
-- List the assumptions you have such as user, technical or other business assumptions.
-(e.g. users will primarily access this feature from a tablet).
+- 使用该产品的多为学生群体
+- 使用工具多为手机，但仍会有平板使用的可能
+- 使用场景多为跨软件使用
+- 使用时长不会太长，多为查询后关闭
 
 # Requirements
 
-#| Title | User story | Importance| Notes
+# | Title | User story | Importance| Notes
 ---|---|---|---|---
- 1 | Short identifier |Describe user and what they are trying to achieve | Must Have | Additional considerations |
- 2 |        |           |                |            |
+1 | 跨软件使用 |A用户正在阅读一本外国名著，读至某句话时明白了单词，但是串起来时总感觉意思不对，或者语义跟上下文不够贴切，于是复制该句子，跳转至本软件进行语句分析。然后明白句子的构造，从而加深对名著的理解|必须有|注意文章出处，可用网络书籍库，查找相对应的书籍进行更精确的翻译与解释 |
+ 2      |文本识别 |B用户正在浏览广告文案进行文案写作学习，发现配图下有着一句话，虽然单词简单，但是句子在该文案中有着画龙点睛的效果，于是下拉通知栏，点击驻留在通知栏的软件快速查询按钮中的文字识别，划出适应大小的识别框，若是没有选择到，则移动识别框或拉大缩小识别框至合适的位置。识别后以弹出通知的形式告知识别结果。           |  一般  |   后台常驻是否能得到用户的许可，是否需要添加收藏以便用户日后查看         |
 
 # User interaction and design
-Include any mockups, diagrams or visual designs relating to these requirements.
+用户使用流程，
 
 # Questions
 Below is a list of questions to be addressed as a result of this requirements document:
 
 Question | Outcome
 ---|---
-(e.g. How we make users more aware of this feature?) | Communicate the decision reached
+如何使软件在用户不使用时自动退出，以节省用户运行内存及电量，提高用户好感度 | 用户自定义设置，或者软件后台自动检测，未运行时间达到一个阈值时自动关闭，或者检测用户使用习惯，自动学习，在不同软件决定是否结束后台。|
+如何将软件尽可能的缩小体积，作为一款随用随开的便携工具。|后期软件设计师解决，同时对功能进行细致化的整理。以及考虑模块化功能的实现，将选择权交还给用户。
 
 # Not doing
-- List the features discussed which are out of scope or might be revisited in a later release.
-
-
+- 图片文本识别功能、实现功能的模块化、后台常驻。
