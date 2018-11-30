@@ -42,7 +42,7 @@ N | Title | User story | Importance| Notes
 
 # User interaction and design
 用户使用流程  
-![登录注册流程图.PNG](https://i.loli.net/2018/12/01/5c016907ba517.png)
+![登录注册流程图.PNG](https://i.loli.net/2018/12/01/5c016907ba517.png)  
 https://i.loli.net/2018/12/01/5c016907ba517.png
 
 # Questions
@@ -59,3 +59,7 @@ Question | Outcome
 - 不插入不相关类型的广告
 - 不自动勾选软件更新，初次有软件更新时提醒。
 - 
+
+
+## 附件清单
+https://i.loli.net/2018/12/01/5c016907ba517.png
