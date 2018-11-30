@@ -13,8 +13,8 @@ QA              | 陈荣城
 
 
 # Goals
+- 通过多个API交互使用，降低用户使用成本，提高用户操作效率。
 - 任务目标为方便用户进行英语学习，使用户更加系统的学习英语，理解句子结构。赏析优秀的句子并仿写。
-- 降低用户使用成本，提高用户操作效率。
 - 建立一个用户交流的社区化软件
 
 # Background and strategic fit
@@ -34,18 +34,70 @@ QA              | 陈荣城
 
 # Requirements
 
-N | Title | User story | Importance| Notes
+# | Title | User story | Importance| Notes
 ---|---|---|---|---
-  1     | 跨软件使用 |A用户正在阅读一本外国名著，遇到了不认识的句子，于是复制该句子，然后软件检测到剪切板有新内容增加，直接进行翻译，在顶部弹出长方形框，内容为翻译内容，翻译内容下面用着小一号的浅灰色字体显示翻译的原句| 必须有 |在弹出长方形框后，用户可以通过长按进入设置，设置为是否实时常驻后台，是否有进行翻译的需要   
-  2     | 文本识别 |B用户正在浏览杂志，发现配图下有着一句话，于是下拉通知栏，点击驻留在通知栏的软件快速查询按钮中的文字识别按钮，将内容置于扫描框内，若扫描框不够大，可以在右上角选择适合大小的扫描狂，识别后回到软件结果显示结果。  | 必须有 |   后台常驻是否能得到用户的许可，是否需要添加收藏功能以便用户日后复习查看结果 
-  3     | 单词、句子和文章收藏    |用户在翻阅时遇到心仪的句子和文章时选择收藏，弹出账号登陆注册页，登陆后选择收藏目录，该目录可以自定义。|必须有|产品初期使用允许不进行账号登陆，此时只开放基础功能。登陆后可以享受模块下载使用，文章收藏，社区评论等。
+  1 | 跨软件使用 |A用户正在阅读一本外国名著，遇到了不认识的句子，于是复制该句子，然后软件检测到剪切板有新内容增加，直接进行翻译，在顶部弹出长方形框，内容为翻译内容，翻译内容下面用着小一号的浅灰色字体显示翻译的原句|必须有|在弹出长方形框后，用户可以通过长按进入设置，设置为是否实时常驻后台，是否有进行翻译的需要 
+  2      |文本识别 |B用户正在浏览杂志，发现配图下有着一句话，于是下拉通知栏，点击驻留在通知栏的软件快速查询按钮中的文字识别按钮，将内容置于扫描框内，若扫描框不够大，可以在右上角选择适合大小的扫描狂，识别后回到软件结果显示结果。  |必须有 |   后台常驻是否能得到用户的许可，是否需要添加收藏功能以便用户日后复习查看结果         
+  3|单词、句子和文章收藏    |用户在翻阅时遇到心仪的句子和文章时选择收藏，弹出账号登陆注册页，登陆后选择收藏目录，该目录可以自定义。|必须有|产品初期使用允许不进行账号登陆，此时只开放基础功能。登陆后可以享受模块下载使用，文章收藏，社区评论等。
 
 # User interaction and design
-用户使用流程  
-![登录注册流程图.PNG](https://i.loli.net/2018/12/01/5c016907ba517.png)  
-https://i.loli.net/2018/12/01/5c016907ba517.png
+## 用户使用流程  
+![登录注册流程图.PNG](https://i.loli.net/2018/12/01/5c016907ba517.png)  https://i.loli.net/2018/12/01/5c016907ba517.png
+## 产品原型界面
+![主界面.PNG](https://i.loli.net/2018/12/01/5c01784803cf8.png)  
+主界面：https://i.loli.net/2018/12/01/5c01784803cf8.png
+
+![翻译页.PNG](https://i.loli.net/2018/12/01/5c01784800b82.png)  
+翻译页：https://i.loli.net/2018/12/01/5c01784800b82.png
+
+# API展示区
+百度通用API使用
+- 在q='输入内容'修改输入项即可得出结果
+``` python
+#/usr/bin/env python
+#coding=utf8
+ 
+
+
+import http.client
+import hashlib
+import json
+import urllib
+import random
+
+
+appid = '20181201000241666' #你的appid
+secretKey = 'A3yalexDWaTRG6XFx4PV' #你的密钥
+
+ 
+httpClient = None
+myurl = '/api/trans/vip/translate'
+q = '输入内容'
+fromLang = 'auto' #源语言设置，可为auto。
+toLang = 'en' #输出语言设置
+salt = random.randint(32768, 65536)
+
+sign = appid+q+str(salt)+secretKey
+sign = hashlib.md5(sign.encode()).hexdigest()
+myurl = myurl+'?appid='+appid+'&q='+urllib.parse.quote(q)+'&from='+fromLang+'&to='+toLang+'&salt='+str(salt)+'&sign='+sign
+
+try:
+    httpClient = http.client.HTTPConnection('api.fanyi.baidu.com')
+    httpClient.request('GET', myurl)
+ 
+    #response是HTTPResponse对象
+    response = httpClient.getresponse()
+    print (response.read())
+except Exception as e:
+    print (e)
+finally:
+    if httpClient:
+        httpClient.close()
+
+```
 
 # Questions
+
 Below is a list of questions to be addressed as a result of this requirements document:
 
 Question | Outcome
@@ -53,13 +105,14 @@ Question | Outcome
 前期如何使软件在用户不使用时自动退出，以节省用户运行内存及电量，提高用户好感度 | 用户自定义设置，是否开启后台纯净模式。或者软件后台自动检测，未运行时间达到一个阈值时自动关闭，或者检测用户使用习惯，自动学习，在不同软件决定是否结束后台。 
 |如何将软件尽可能的缩小体积，作为一款随用随开的便携工具。|后期软件设计师解决，同时对功能进行细致化的整理。以及考虑模块化功能的实现，将选择权交还给用户。
 |对于权限的获取时机提出|以用户使用到该功能时弹出获取权限框，同时，当用户拒绝权限给予时，只会影响到权限相关的功能，其他功能不受影响。
-|           |
+
 
 # Not doing
 - 不插入不相关类型的广告
 - 不自动勾选软件更新，初次有软件更新时提醒。
 - 
 
-
 ## 附件清单
-https://i.loli.net/2018/12/01/5c016907ba517.png
+- 登陆注册流程图：https://i.loli.net/2018/12/01/5c016907ba517.png
+- 原型主界面：https://i.loli.net/2018/12/01/5c01784803cf8.png
+- 原型翻译页：https://i.loli.net/2018/12/01/5c01784800b82.png
