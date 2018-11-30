@@ -36,12 +36,13 @@ QA              | 陈荣城
 
 N | Title | User story | Importance| Notes
 ---|---|---|---|---
-  1      | 跨软件使用 | A用户正在阅读一本外国名著，遇到了不认识的句子，于是复制该句子，然后软件检测到剪切板有新内容增加，直接进行翻译，在顶部弹出长方形框，内容为翻译内容，翻译内容下面用着小一号的浅灰色字体显示翻译的原句 | 必须有 | 在弹出长方形框后，用户可以通过长按进入设置，设置为是否实时常驻后台，是否有进行翻译的需要 
-  2      | 文本识别 | B用户正在浏览杂志，发现配图下有着一句话，于是下拉通知栏，点击驻留在通知栏的软件快速查询按钮中的文字识别按钮，将内容置于扫描框内，若扫描框不够大，可以在右上角选择适合大小的扫描狂，识别后回到软件结果显示结果。  | 必须有 |   后台常驻是否能得到用户的许可，是否需要添加收藏功能以便用户日后复习查看结果         
-  3      | 单词、句子和文章收藏    | 用户在翻阅时遇到心仪的句子和文章时选择收藏，弹出账号登陆注册页，登陆后选择收藏目录，该目录可以自定义。 | 必须有 | 产品初期使用允许不进行账号登陆，此时只开放基础功能。登陆后可以享受模块下载使用，文章收藏，社区评论等。
+  1 | 跨软件使用 |A用户正在阅读一本外国名著，遇到了不认识的句子，于是复制该句子，然后软件检测到剪切板有新内容增加，直接进行翻译，在顶部弹出长方形框，内容为翻译内容，翻译内容下面用着小一号的浅灰色字体显示翻译的原句|必须有|在弹出长方形框后，用户可以通过长按进入设置，设置为是否实时常驻后台，是否有进行翻译的需要 
+  2      |文本识别 |B用户正在浏览杂志，发现配图下有着一句话，于是下拉通知栏，点击驻留在通知栏的软件快速查询按钮中的文字识别按钮，将内容置于扫描框内，若扫描框不够大，可以在右上角选择适合大小的扫描狂，识别后回到软件结果显示结果。  |必须有 |   后台常驻是否能得到用户的许可，是否需要添加收藏功能以便用户日后复习查看结果         
+  3|单词、句子和文章收藏    |用户在翻阅时遇到心仪的句子和文章时选择收藏，弹出账号登陆注册页，登陆后选择收藏目录，该目录可以自定义。|必须有|产品初期使用允许不进行账号登陆，此时只开放基础功能。登陆后可以享受模块下载使用，文章收藏，社区评论等。
 
 # User interaction and design
-## 用户使用流程  
+## 用户使用流程
+
 ![登录注册流程图.PNG](https://i.loli.net/2018/12/01/5c016907ba517.png)  
 https://i.loli.net/2018/12/01/5c016907ba517.png
 
@@ -53,7 +54,8 @@ https://i.loli.net/2018/12/01/5c016907ba517.png
 翻译页：https://i.loli.net/2018/12/01/5c01784800b82.png
 
 # API展示区
-百度通用API使用
+### 百度通用API使用
+- 注意使用自身申请的appid和密钥，以下为本人个人key，仅供试用。
 - 在q='输入内容'修改输入项即可得出结果
 ``` python
 #/usr/bin/env python
@@ -97,7 +99,30 @@ finally:
         httpClient.close()
 
 ```
+### 百度通用文字识别
+- 注意，使用时请自行申请access_token，一下为本人key,仅供试用。
+- 修改‘##图片地址##’即可查看图片所含文字
+```
+import urllib3,base64
+from urllib.parse import urlencode
+access_token='24.9b48b9e1c17a5a90bfe3a0525df40645.2592000.1546198061.282335-11538987' #该处请自行申请并填入
+http=urllib3.PoolManager()
+url='https://aip.baidubce.com/rest/2.0/ocr/v1/general?access_token='+access_token
+f = open('##图片地址##','rb')
+#参数image：图像base64编码
+img = base64.b64encode(f.read())
+params={'image':img}
+#对base64数据进行urlencode处理
+params=urlencode(params)
+request=http.request('POST', 
+                      url,
+                      body=params,
+                      headers={'Content-Type':'application/x-www-form-urlencoded'})
+#对返回的byte字节进行处理。Python3输出位串，而不是可读的字符串，需要进行转换
+result = str(request.data,'utf-8')
+print(result)
 
+```
 # Questions
 
 Below is a list of questions to be addressed as a result of this requirements document:
