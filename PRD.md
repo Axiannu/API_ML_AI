@@ -41,7 +41,9 @@ N | Title | User story | Importance| Notes
   3     | 单词、句子和文章收藏    |用户在翻阅时遇到心仪的句子和文章时选择收藏，弹出账号登陆注册页，登陆后选择收藏目录，该目录可以自定义。|必须有|产品初期使用允许不进行账号登陆，此时只开放基础功能。登陆后可以享受模块下载使用，文章收藏，社区评论等。
 
 # User interaction and design
-用户使用流程，
+用户使用流程  
+![登录注册流程图.PNG](https://i.loli.net/2018/12/01/5c016907ba517.png)
+https://i.loli.net/2018/12/01/5c016907ba517.png
 
 # Questions
 Below is a list of questions to be addressed as a result of this requirements document:
