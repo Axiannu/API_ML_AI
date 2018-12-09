@@ -10,6 +10,7 @@ Document owner  | 陈荣城
 Designer        | 陈荣城
 Developer       | 陈荣城
 QA              | 陈荣城
+edition         |1.0
 
 
 # Goals
