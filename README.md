@@ -214,3 +214,4 @@ Question | Outcome
 - 登陆注册流程图：https://i.loli.net/2018/12/01/5c016907ba517.png
 - 原型主界面：https://i.loli.net/2018/12/01/5c01784803cf8.png
 - 原型翻译页：https://i.loli.net/2018/12/01/5c01784800b82.png
+
