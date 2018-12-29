@@ -3,7 +3,7 @@
 ### 表格
 属性 | 内容
 ---|---
-Target release  | 2018/11/25
+Target release  | 2018/12/24
 Epic            | 建立一个吸纳学习者的一个社区空间
 Document status | 进行中
 Document owner  | 陈荣城
