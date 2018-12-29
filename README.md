@@ -141,8 +141,8 @@ print(result)
 
 ```
 ## 以下为两个API代码下载地址：
-这是 [百度通用API使用](https://github.com/Axiannu/API_ML_AI/blob/master/Code%20file/%E7%99%BE%E5%BA%A6%E9%80%9A%E7%94%A8API%E4%BD%BF%E7%94%A8.py).
-这是 [百度通用文字识别](https://github.com/Axiannu/API_ML_AI/blob/master/Code%20file/%E7%99%BE%E5%BA%A6%E9%80%9A%E7%94%A8%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB.py).
+- 这是 [百度通用API使用](https://github.com/Axiannu/API_ML_AI/blob/master/Code%20file/%E7%99%BE%E5%BA%A6%E9%80%9A%E7%94%A8API%E4%BD%BF%E7%94%A8.py).
+= 这是 [百度通用文字识别](https://github.com/Axiannu/API_ML_AI/blob/master/Code%20file/%E7%99%BE%E5%BA%A6%E9%80%9A%E7%94%A8%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB.py).
 
 # API产品的分析
 - 通用翻译API的使用价格详细：若当月翻译字符数≤2百万，当月免费；若超过2百万字符，按照49元/百万字符支付当月全部翻译字符数费用。
