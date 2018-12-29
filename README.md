@@ -87,8 +87,8 @@ import urllib
 import random
 
 
-appid = '20181201000241666' #你的appid
-secretKey = 'A3yalexDWaTRG6XFx4PV' #你的密钥
+appid = '###' #你的appid
+secretKey = '###' #你的密钥
 
  
 httpClient = None
@@ -122,7 +122,7 @@ finally:
 ```
 import urllib3,base64
 from urllib.parse import urlencode
-access_token='24.9b48b9e1c17a5a90bfe3a0525df40645.2592000.1546198061.282335-11538987' #该处请自行申请并填入
+access_token='###' #该处请自行申请并填入
 http=urllib3.PoolManager()
 url='https://aip.baidubce.com/rest/2.0/ocr/v1/general?access_token='+access_token
 f = open('##图片地址##','rb')
